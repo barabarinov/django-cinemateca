@@ -1,24 +1,21 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from crew.models import Actor, Director
+from config import settings
+from crew.models import Actor
 
 
 class Movie(models.Model):
     title = models.CharField(max_length=256)
     description = models.TextField(default="No description")
     year = models.PositiveSmallIntegerField(null=True, blank=True)
-    photo = models.ImageField(
-        upload_to="movie_photos", null=True, blank=True
-    )
+    photo = models.ImageField(upload_to="movie_photos", null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    trailer_url = models.URLField(null=True)
+    trailer_url = models.URLField(null=True, blank=True)
     director = models.ForeignKey(
-        to=Director,
-        on_delete=models.SET_NULL,
+        to=settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
         related_name="movies",
         null=True,
-        blank=True,
     )
     actors = models.ManyToManyField(
         to=Actor,
@@ -31,13 +28,6 @@ class Movie(models.Model):
     country = models.ManyToManyField(
         to="Country",
         related_name="movies",
-    )
-    production = models.ForeignKey(
-        to="Production",
-        on_delete=models.SET_NULL,
-        related_name="movies",
-        null=True,
-        blank=True,
     )
 
     def __str__(self) -> str:
@@ -59,17 +49,3 @@ class Country(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class Production(AbstractUser):
-    name = models.CharField(max_length=128)
-    country = models.ForeignKey(
-        to=Country,
-        on_delete=models.SET_NULL,
-        related_name="productions",
-        null=True,
-        blank=True,
-    )
-
-    def __str__(self) -> str:
-        return self.username
