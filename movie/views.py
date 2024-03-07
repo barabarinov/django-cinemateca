@@ -48,7 +48,12 @@ class MovieCreateView(LoginRequiredMixin, CreateView):
 
 class MovieUpdateView(LoginRequiredMixin, UpdateView):
     model = Movie
+    form_class = MovieForm
+    template_name = "movie/movie_form.html"
+    success_url = reverse_lazy("movie:movie-list")
 
 
 class MovieDeleteView(LoginRequiredMixin, DeleteView):
     model = Movie
+    template_name = "movie/movie_confirm_delete.html"
+    success_url = reverse_lazy("movie:movie-list")
