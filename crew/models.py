@@ -15,6 +15,10 @@ class Director(AbstractUser):
         blank=True,
     )
 
+    class Meta:
+        verbose_name_plural = "Directors"
+        ordering = ["first_name"]
+
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"
 
@@ -31,6 +35,9 @@ class Actor(models.Model):
         null=True,
         blank=True,
     )
+
+    class Meta:
+        ordering = ["first_name"]
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name}"

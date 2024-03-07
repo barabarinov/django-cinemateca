@@ -37,6 +37,10 @@ class Movie(models.Model):
 class Genre(models.Model):
     title = models.CharField(max_length=128)
 
+    class Meta:
+        verbose_name_plural = "countries"
+        ordering = ["title"]
+
     def __str__(self) -> str:
         return self.title
 
@@ -46,6 +50,7 @@ class Country(models.Model):
 
     class Meta:
         verbose_name_plural = "countries"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
