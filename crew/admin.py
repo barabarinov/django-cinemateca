@@ -10,9 +10,10 @@ class DirectorAdmin(UserAdmin):
     list_display = UserAdmin.list_display + ("birthday", "photo", "country")
     fieldsets = UserAdmin.fieldsets + (
         (
-            "Additional info", {
+            "Additional info",
+            {
                 "fields": ("birthday", "photo", "country"),
-            }
+            },
         ),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
@@ -42,5 +43,11 @@ class ActorAdmin(ModelAdmin):
         "photo",
         "country",
     ]
-    list_filter = ["birthday", "country", ]
-    search_fields = ["first_name", "last_name", ]
+    list_filter = [
+        "birthday",
+        "country",
+    ]
+    search_fields = [
+        "first_name",
+        "last_name",
+    ]
