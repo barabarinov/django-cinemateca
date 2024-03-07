@@ -12,7 +12,7 @@
       <button class="btn btn-primary" type="submit">Login</button>
       <input type="hidden" name="next" value="{{ next }}">
     </form>
-    <p class="text-center">Don't have an account? <a href="{% url "crew:director-create" %}">Create an account</a>.</p>
+    <p class="text-center">Don't have an account? <a class="text-decoration-none" href="{% url "crew:director-create" %}">Create an account</a></p>
   </div>
 
 {% endblock %}
