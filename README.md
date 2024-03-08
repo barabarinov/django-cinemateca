@@ -21,3 +21,23 @@ Welcome to Cinemateca, a Django-based platform designed specifically for directo
 
 #### Database Diagram:
 ![Database Diagram](static/pics/Cinemateca_database_diagram.png)
+
+
+![Database Diagram](static/pics/index.png)
+![Database Diagram](static/pics/movie_detail.png)
+![Database Diagram](static/pics/movie_update.png)
+![Database Diagram](static/pics/movie_delete.png)
+![Database Diagram](static/pics/movie_create.png)
+![Database Diagram](static/pics/actor_detail.png)
+![Database Diagram](static/pics/actor_update.png)
+![Database Diagram](static/pics/actor_delete.png)
+![Database Diagram](static/pics/actor_create.png)
+![Database Diagram](static/pics/login.png)
+![Database Diagram](static/pics/logout.png)
+![Database Diagram](static/pics/director_detail.png)
+![Database Diagram](static/pics/director_update.png)
+![Database Diagram](static/pics/director_delete.png)
+![Database Diagram](static/pics/director_create.png)
+
+
+
