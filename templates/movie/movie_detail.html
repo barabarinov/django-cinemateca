@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <div class="h2 justify-content-center d-flex d-lg-none mb-3">{{ movie.title }} ({{ movie.year }})</div>
+
+  <div class="d-flex flex-column flex-lg-row gap-3 mb-3">
+
+    <div class="d-flex w-100 border p-2 gap-2 rounded">
+      <img src="{{ movie.photo.url }}" class=" img-fluid"
+           alt="{{ movie.title }}"
+           title="{{ movie.title }}">
+    </div>
+
+    <div class="d-flex w-100">
+      <div class="d-flex flex-column">
+
+        <div class="h1 d-none d-lg-flex mb-3">{{ movie.title }} ({{ movie.year }})</div>
+
+        <div class="d-flex flex-column mb-3"></div>
+
+        <div class="d-flex flex-column border p-2 pb-3 gap-2 rounded">
+          <div class="text-dark">
+            <span class="fw-bolder">Director:</span>
+            <a href="{% url "crew:director-detail" pk=movie.director.pk %}" class="text-decoration-none">
+              {{ movie.director.first_name }} {{ movie.director.last_name }}
+            </a>
+          </div>
+
+          <div class="d-flex flex-wrap">
+            <div class="me-1">
+              <span class="fw-bolder mb-3">Actors:</span>
+            </div>
+            {% for actor in movie.actors.all %}
+              <div class="text-dark me-1">
+                <a href="{% url "crew:actor-detail" pk=actor.pk %}" class="text-decoration-none">
+                  {{ actor.first_name }} {{ actor.last_name }}{% if not forloop.last %},{% endif %}
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="d-flex">
+            <div class="me-1">
+              <span class="fw-bolder">Country:</span>
+            </div>
+            <div class="text-dark me-1">
+
+              {% for country in movie.country.all %}
+                <a href="{% url "movie:movie-list" %}?country={{ country.name }}" class="text-decoration-none">
+                  {{ country.name }}{% if not forloop.last %},{% endif %}
+                </a>
+
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="me-1">
+              <span class="fw-bolder">Year:</span>
+            </div>
+            <div class="text-dark me-1">
+              <a href="{% url "movie:movie-list" %}?year={{ movie.year }}" class="text-decoration-none">
+                {{ movie.year }}</a>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="me-1">
+              <span class="fw-bolder">Genre:</span>
+            </div>
+            {% for genre in movie.genre.all %}
+              <div class="text-dark me-1">
+                <a href="{% url "movie:movie-list" %}?genre={{ genre.id }}" class="text-decoration-none">
+                  {{ genre.title }}{% if not forloop.last %},{% endif %}
+                </a>
+              </div>
+            {% endfor %}
+
+          </div>
+
+          <div class="text-dark">
+            <span class="fw-bolder">Description:</span>
+            {{ movie.description }}
+          </div>
+
+        </div>
+
+        <div class="d-flex mt-2 gap-2">
+          <a href="{% url "movie:movie-update" movie.pk %}"
+             class="text-decoration-none mt-auto btn btn-outline-warning"
+             title="Update">Update</a>
+          <a href="{% url "movie:movie-delete" movie.pk %}"
+             class="text-decoration-none mt-auto btn btn-outline-danger"
+             title="Delete">Delete</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="h3 text mb-2"> Trailer:</div>
+
+    <div class="row-4">
+      <div class="border p-2 gap-2 rounded">
+        <div class="ratio ratio-16x9">
+          <iframe width="560" height="315" src="{{ movie.trailer_url }}"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+    {#    <div class="container"> #}
+    {#      <div class="row justify-content-center">#}
+    {#        <div class="col-lg-8">#}
+    {#          <div class="border p-2 gap-2 rounded">#}
+    {#            <div class="ratio ratio-16x9">#}
+    {#              <iframe width="560" height="315" src="{{ movie.trailer_url }}"#}
+    {#                      title="YouTube video player" frameborder="0"#}
+    {#                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"#}
+    {#                      allowfullscreen>#}
+    {#              </iframe>#}
+    {#            </div>#}
+    {#          </div>#}
+    {#        </div>#}
+    {#      </div>#}
+    {#    </div>#}
+  </div>
+
+{% endblock %}
