@@ -11,41 +11,86 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('crew', '0001_initial'),
+        ("crew", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Country',
+            name="Country",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=128)),
             ],
             options={
-                'verbose_name_plural': 'countries',
+                "verbose_name_plural": "countries",
             },
         ),
         migrations.CreateModel(
-            name='Genre',
+            name="Genre",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=128)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=128)),
             ],
         ),
         migrations.CreateModel(
-            name='Movie',
+            name="Movie",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=256)),
-                ('description', models.TextField(default='No description')),
-                ('year', models.PositiveSmallIntegerField(blank=True, null=True)),
-                ('photo', models.ImageField(blank=True, null=True, upload_to='movie_photos')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('trailer_url', models.URLField(null=True)),
-                ('actors', models.ManyToManyField(related_name='movie', to='crew.actor')),
-                ('country', models.ManyToManyField(related_name='movie', to='movie.country')),
-                ('director', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='movie', to=settings.AUTH_USER_MODEL)),
-                ('genre', models.ManyToManyField(related_name='movie', to='movie.genre')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=256)),
+                ("description", models.TextField(default="No description")),
+                ("year", models.PositiveSmallIntegerField(blank=True, null=True)),
+                (
+                    "photo",
+                    models.ImageField(blank=True, null=True, upload_to="movie_photos"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("trailer_url", models.URLField(null=True)),
+                (
+                    "actors",
+                    models.ManyToManyField(related_name="movie", to="crew.actor"),
+                ),
+                (
+                    "country",
+                    models.ManyToManyField(related_name="movie", to="movie.country"),
+                ),
+                (
+                    "director",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="movie",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "genre",
+                    models.ManyToManyField(related_name="movie", to="movie.genre"),
+                ),
             ],
         ),
     ]

@@ -4,9 +4,7 @@ from django.db import models
 
 class Director(AbstractUser):
     birthday = models.DateField(null=True, blank=True)
-    photo = models.ImageField(
-        upload_to="director_photos", null=True, blank=True
-    )
+    photo = models.ImageField(upload_to="director_photos", null=True, blank=True)
     country = models.ForeignKey(
         to="movie.Country",
         related_name="directors",

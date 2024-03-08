@@ -3,19 +3,6 @@
 
 {% block content %}
 
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
-  {% endif %}
-
   <div class="container">
     <h1>Login</h1>
 
@@ -25,7 +12,7 @@
       <button class="btn btn-primary" type="submit">Login</button>
       <input type="hidden" name="next" value="{{ next }}">
     </form>
-
+    <p class="text-center">Don't have an account? <a class="text-decoration-none" href="{% url "crew:director-create" %}">Create an account</a></p>
   </div>
 
 {% endblock %}
