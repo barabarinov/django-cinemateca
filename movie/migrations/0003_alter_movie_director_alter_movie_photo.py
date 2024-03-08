@@ -9,23 +9,18 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ("movie", "0002_alter_movie_trailer_url"),
+        ('movie', '0002_alter_movie_trailer_url'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name="movie",
-            name="director",
-            field=models.ForeignKey(
-                null=True,
-                on_delete=django.db.models.deletion.CASCADE,
-                related_name="movie",
-                to=settings.AUTH_USER_MODEL,
-            ),
+            model_name='movie',
+            name='director',
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='movie', to=settings.AUTH_USER_MODEL),
         ),
         migrations.AlterField(
-            model_name="movie",
-            name="photo",
-            field=models.ImageField(null=True, upload_to="movie_photos"),
+            model_name='movie',
+            name='photo',
+            field=models.ImageField(null=True, upload_to='movie_photos'),
         ),
     ]
