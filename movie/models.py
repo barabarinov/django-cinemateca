@@ -38,7 +38,6 @@ class Genre(models.Model):
     title = models.CharField(max_length=128)
 
     class Meta:
-        verbose_name_plural = "countries"
         ordering = ["title"]
 
     def __str__(self) -> str:

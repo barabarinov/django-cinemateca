@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Director, Actor
+from .models import Director
 from movie.models import Country
 
 
