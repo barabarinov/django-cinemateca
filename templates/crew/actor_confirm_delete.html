@@ -3,12 +3,12 @@
   <h3>Are you sure?</h3>
   <p>Are you sure you want to delete the actor "{{ actor.first_name }} {{ actor.last_name }}"?</p>
   <div class="d-flex gap-2">
-  
+
     <form action="" method="post">
       {% csrf_token %}
       <input type="submit" value="Yes, I'm sure" class="btn btn-danger">
     </form>
-    
+
     <a class="btn btn-secondary" href="{% url 'crew:actor-detail' pk=actor.pk %}">No, take me back</a>
   </div>
 {% endblock %}

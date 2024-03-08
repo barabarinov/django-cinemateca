@@ -1,6 +1,6 @@
 {% if is_paginated %}
   <ul class="pagination pagination-md justify-content-center">
-    
+
     {% if page_obj.has_previous %}
       <li class="page-item">
         <a class="page-link" href="?page=1" aria-label="Previous">
@@ -21,14 +21,14 @@
     {% endfor %}
 
     {% if page_obj.has_next %}
-      
+
       <li class="page-item">
         <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only"></span>
         </a>
       </li>
-      
+
     {% endif %}
   </ul>
 {% endif %}
