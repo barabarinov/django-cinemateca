@@ -21,11 +21,11 @@ class Movie(models.Model):
         to=Actor,
         related_name="movies",
     )
-    genre = models.ManyToManyField(
+    genres = models.ManyToManyField(
         to="Genre",
         related_name="movies",
     )
-    country = models.ManyToManyField(
+    countries = models.ManyToManyField(
         to="Country",
         related_name="movies",
     )
