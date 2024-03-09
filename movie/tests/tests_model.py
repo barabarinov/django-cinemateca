@@ -4,12 +4,10 @@ from django.contrib.auth import get_user_model
 from movie.models import Movie, Genre, Country
 from crew.models import Actor
 
-User = get_user_model()
-
 
 class MovieModelTest(TestCase):
     def setUp(self):
-        self.director = User.objects.create(
+        self.director = get_user_model().create_user(
             username="director",
             password="testpassword",
         )
