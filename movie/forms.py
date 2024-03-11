@@ -4,11 +4,11 @@ from movie.models import Movie, Genre, Country
 
 
 class MovieForm(forms.ModelForm):
-    genre = forms.ModelMultipleChoiceField(
+    genres = forms.ModelMultipleChoiceField(
         queryset=Genre.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
-    country = forms.ModelMultipleChoiceField(
+    countries = forms.ModelMultipleChoiceField(
         queryset=Country.objects.all(),
         widget=forms.CheckboxSelectMultiple,
     )
