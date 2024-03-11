@@ -47,7 +47,7 @@
             </div>
             <div class="text-dark me-1">
 
-              {% for country in movie.country.all %}
+              {% for country in movie.countries.all %}
                 <a href="{% url "movie:movie-list" %}?country={{ country.name }}" class="text-decoration-none">
                   {{ country.name }}{% if not forloop.last %},{% endif %}
                 </a>
@@ -70,7 +70,7 @@
             <div class="me-1">
               <span class="fw-bolder">Genre:</span>
             </div>
-            {% for genre in movie.genre.all %}
+            {% for genre in movie.genres.all %}
               <div class="text-dark me-1">
                 <a href="{% url "movie:movie-list" %}?genre={{ genre.id }}" class="text-decoration-none">
                   {{ genre.title }}{% if not forloop.last %},{% endif %}
