@@ -23,10 +23,10 @@ class MovieListView(LoginRequiredMixin, ListView):
 
         if "year" in self.request.GET:
             return queryset.filter(year=self.request.GET.get("year"))
-        if "genres" in self.request.GET:
-            return queryset.filter(genre=self.request.GET.get("genres"))
-        if "countries" in self.request.GET:
-            return queryset.filter(country__name=self.request.GET.get("countries"))
+        if "genre" in self.request.GET:
+            return queryset.filter(genres=self.request.GET.get("genre"))
+        if "country" in self.request.GET:
+            return queryset.filter(countries__name=self.request.GET.get("country"))
 
         return queryset.order_by("-year")
 
