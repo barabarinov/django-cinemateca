@@ -36,7 +36,7 @@ class MovieDetailView(LoginRequiredMixin, DetailView):
     queryset = (
         Movie.objects.all()
         .select_related("director")
-        .prefetch_related("actors", "country", "genre")
+        .prefetch_related("actors", "countries", "genres")
     )
 
 
