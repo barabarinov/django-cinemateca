@@ -21,5 +21,10 @@ Welcome to Cinemateca, a Django-based platform designed specifically for directo
 #### Link to deployed site:
 [https://django-cinemateca.onrender.com](https://django-cinemateca.onrender.com)
 
+####
+Credentials:
+> - login: user
+> - password: user12345
+
 #### Database Diagram:
 ![Database Diagram](static/pics/Cinemateca_database_diagram.png)
