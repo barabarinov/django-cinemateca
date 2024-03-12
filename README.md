@@ -11,14 +11,14 @@ Welcome to Cinemateca, a Django-based platform designed specifically for directo
 * Install dependencies
 `pip install -r requirements.txt`
 * Create a `.env` file in the project root directory.
-* Add the necessary configurations `SECRET_KEY=your_django_secret_key`
+* Add `SECRET_KEY=your_django_secret_key` to `.env`
 * Apply database migrations to set up your database schema: 
 `python manage.py makemigrations`
 `python manage.py migrate`
 * Running the development server `python manage.py runserver`
 * Open your web browser and go to http://127.0.0.1:8000 to see the project in action.
 
-#### Link deployed to site:
+#### Link to deployed site:
 [https://django-cinemateca.onrender.com](https://django-cinemateca.onrender.com)
 
 #### Database Diagram:
