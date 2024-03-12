@@ -18,6 +18,8 @@ Welcome to Cinemateca, a Django-based platform designed specifically for directo
 * Running the development server `python manage.py runserver`
 * Open your web browser and go to http://127.0.0.1:8000 to see the project in action.
 
+#### Link deployed to site:
+[https://django-cinemateca.onrender.com](https://django-cinemateca.onrender.com)
 
 #### Database Diagram:
 ![Database Diagram](static/pics/Cinemateca_database_diagram.png)
