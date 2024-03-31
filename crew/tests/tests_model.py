@@ -6,6 +6,7 @@ from movie.models import Country
 
 
 class DirectorActorModelTest(TestCase):
+
     @staticmethod
     def create_country(name="Some Country"):
         return Country.objects.create(name=name)

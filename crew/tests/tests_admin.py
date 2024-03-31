@@ -5,6 +5,7 @@ from crew.models import Actor, Director
 
 
 class ActorAdminTest(TestCase):
+
     def setUp(self):
         self.site = AdminSite()
         self.actor_admin = ActorAdmin(Actor, self.site)
@@ -25,6 +26,7 @@ class ActorAdminTest(TestCase):
 
 
 class DirectorAdminTest(TestCase):
+
     def setUp(self):
         self.site = AdminSite()
         self.director_admin = DirectorAdmin(Director, self.site)
