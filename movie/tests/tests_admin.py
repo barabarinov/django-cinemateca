@@ -5,6 +5,7 @@ from movie.models import Movie, Genre, Country
 
 
 class MovieAdminTest(TestCase):
+
     def setUp(self):
         self.site = AdminSite()
         self.movie_admin = MovieAdmin(Movie, self.site)
@@ -36,6 +37,7 @@ class MovieAdminTest(TestCase):
 
 
 class GenreAdminTest(TestCase):
+
     def setUp(self):
         self.site = AdminSite()
         self.genre_admin = GenreAdmin(Genre, self.site)
@@ -56,6 +58,7 @@ class GenreAdminTest(TestCase):
 
 
 class CountryAdminTest(TestCase):
+
     def setUp(self):
         self.site = AdminSite()
         self.country_admin = CountryAdmin(Country, self.site)

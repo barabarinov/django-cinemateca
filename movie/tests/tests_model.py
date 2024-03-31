@@ -6,6 +6,7 @@ from crew.models import Actor
 
 
 class MovieModelTest(TestCase):
+
     def setUp(self):
         self.director = get_user_model().create_user(
             username="director",
@@ -42,6 +43,7 @@ class MovieModelTest(TestCase):
 
 
 class GenreModelTest(TestCase):
+
     def setUp(self):
         self.genre = Genre.objects.create(title="Thriller")
 
@@ -53,6 +55,7 @@ class GenreModelTest(TestCase):
 
 
 class CountryModelTest(TestCase):
+
     def setUp(self):
         self.country = Country.objects.create(name="Canada")
 
