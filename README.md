@@ -23,8 +23,10 @@ Welcome to Cinemateca, a Django-based platform designed specifically for directo
 
 ####
 Credentials:
-> - login: user
-> - password: user12345
+
+- login: user
+- password: user12345
+
 
 #### Database Diagram:
 ![Database Diagram](static/pics/Cinemateca_database_diagram.png)
